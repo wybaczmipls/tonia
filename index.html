@@ -128,5 +128,22 @@
     }
     setInterval(createHeart, 500);
   </script>
+<audio id="music" loop>
+  <source src="muzyka.mp3" type="audio/mpeg">
+  Twoja przeglądarka nie obsługuje audio.
+</audio>
+
+<script>
+  const audio = document.getElementById('music');
+  let played = false;
+
+  document.addEventListener('click', function handler() {
+    if (!played) {
+      audio.play().catch(() => console.log("Autoplay zablokowany"));
+      played = true;
+      document.removeEventListener('click', handler);
+    }
+  });
+</script>
 </body>
 </html>
