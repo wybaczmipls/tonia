@@ -108,10 +108,10 @@
 
   <script>
     function showYes() {
-      document.getElementById("answer").innerHTML = " ciesze się naprawdę ;)) Napisz mi proszę, kiedy znajdziesz chwilę, żebym mógł się z Tobą spotkać. ;3 ";
+      document.getElementById("answer").innerHTML = "ciesze się naprawdę napisz mi proszę, kiedy znajdziesz chwilę, żebym mógł się z Tobą spotkać. 💚";
     }
     function showNo() {
-      document.getElementById("answer").innerHTML = " Rozumiem i tak  przepraszam Cię z całego serca za wszystko.";
+      document.getElementById("answer").innerHTML = " Rozumiem i tak przepraszam Cię z całego serca za wszystko.";
     }
 
     // Generowanie animowanych serduszek
@@ -128,22 +128,5 @@
     }
     setInterval(createHeart, 500);
   </script>
- <audio id="music" loop>
-  <source src="https://www.youtube.com/embed/6tb4Gx-9mJI?autoplay=1&loop=1&playlist=6tb4Gx-9mJI" type="audio/mpeg">
-  Twoja przeglądarka nie obsługuje audio.
-</audio>
-
-<script>
-  const audio = document.getElementById('music');
-  let played = false;
-
-  document.addEventListener('click', function handler() {
-    if (!played) {
-      audio.play().catch(() => console.log("Autoplay zablokowany"));
-      played = true;
-      document.removeEventListener('click', handler);
-    }
-  });
-</script>
 </body>
 </html>
