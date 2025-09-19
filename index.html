@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <title>Tonia, wybacz mi</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #ffe6f0, #e6f7ff);
+      text-align: center;
+      padding: 50px;
+      overflow-x: hidden;
+    }
+    h1 {
+      color: #ff4d6d;
+      font-size: 36px;
+      margin-bottom: 20px;
+      animation: fadeIn 2s ease-in-out;
+    }
+    p {
+      font-size: 20px;
+      margin-bottom: 40px;
+    }
+    .btn {
+      display: inline-block;
+      padding: 15px 30px;
+      margin: 20px;
+      font-size: 20px;
+      border-radius: 30px;
+      text-decoration: none;
+      color: white;
+      transition: 0.3s;
+      cursor: pointer;
+    }
+    .yes {
+      background: #4CAF50;
+    }
+    .yes:hover {
+      background: #45a049;
+    }
+    .no {
+      background: #f44336;
+    }
+    .no:hover {
+      background: #da190b;
+    }
+    .hearts {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: -1;
+    }
+    .heart {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: red;
+      transform: rotate(45deg);
+      animation: float 6s infinite ease-in;
+    }
+    .heart:before, .heart:after {
+      content: "";
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: red;
+      border-radius: 50%;
+    }
+    .heart:before {
+      top: -10px;
+      left: 0;
+    }
+    .heart:after {
+      left: 10px;
+      top: 0;
+    }
+    @keyframes float {
+      0% { transform: translateY(0) rotate(45deg); opacity: 1; }
+      100% { transform: translateY(-800px) rotate(45deg); opacity: 0; }
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Tonia 💖, wiem że zepsułem nasz związek przez swoją głupotę...</h1>
+  <p>Chcę to naprawić i dać z siebie 100%, żeby być dla Ciebie najlepszy.  
+     Czy możemy się spotkać i spokojnie porozmawiać?</p>
+
+  <a class="btn yes" onclick="showYes()">👉 Tak</a>
+  <a class="btn no" onclick="showNo()">❌ Nie</a>
+
+  <div id="answer" style="margin-top:40px; font-size:22px; color:#333;"></div>
+
+  <!-- Osadzona muzyka z YouTube -->
+  <iframe width="0" height="0"
+    src="https://www.youtube.com/embed/6tb4Gx-9mJI?autoplay=1&loop=1&playlist=6tb4Gx-9mJI"
+    frameborder="0" allow="autoplay; encrypted-media">
+  </iframe>
+
+  <div class="hearts" id="hearts"></div>
+
+  <script>
+    function showYes() {
+      document.getElementById("answer").innerHTML = " ciesze się naprawdę ;)) Napisz mi proszę, kiedy znajdziesz chwilę, żebym mógł się z Tobą spotkać. ;3 ";
+    }
+    function showNo() {
+      document.getElementById("answer").innerHTML = " Rozumiem i tak  przepraszam Cię z całego serca za wszystko.";
+    }
+
+    // Generowanie animowanych serduszek
+    function createHeart() {
+      const heart = document.createElement("div");
+      heart.className = "heart";
+      heart.style.left = Math.random() * window.innerWidth + "px";
+      heart.style.top = window.innerHeight + "px";
+      document.getElementById("hearts").appendChild(heart);
+
+      setTimeout(() => {
+        heart.remove();
+      }, 6000);
+    }
+    setInterval(createHeart, 500);
+  </script>
+</body>
+</html>
